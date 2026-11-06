@@ -11,7 +11,7 @@ const personagem = [
         "nomepersonagem": "Kuromi",
         "descricaopersonagem": "Kuromi é muito bagunceira e sempre causa confusões. Por trás de sua aparência radical, ela é super feminina. Adora escrever em seu diário e ler romances. Sua cor preferida é a preta. Ela é amiga da My Melody, mas encara essa amizade com uma certa competição.",
         "curiosidadepersonagem": " É vocalista da banda fictícia Kuromi and the Bad Badtz-Maru's, expressando sua personalidade punk",
-        "cor": "#efafc5"
+        "cor": "#dec0fa"
     },
     {
         "imgpersonagem": "img/mymelody.png",
@@ -36,13 +36,47 @@ const personagem = [
     },
 ];
 
+let i = 0
+
+function mostrarPersonagem() {
+    const person = personagem[i];
+    document.getElementById("imgpersonagem").src = person.imgpersonagem;
+    document.getElementById("nomepersonagem").textContent = person.nomepersonagem;
+    document.getElementById("descricaopersonagem").textContent = person.descricaopersonagem;
+
+    document.getElementById("curiosidadepersonagem").textContent = person.curiosidadepersonagem;
+    document.getElementById("nomepersonagem").style.color = person.cor;
+    document.querySelectorAll(".seta").forEach(seta => {
+        seta.style.backgroundColor = person.cor;
+    }); console.log(person)
+    document.getElementById("imgpersonagem").style.setProperty(
+        "--cor-personagem",
+        person.cor
+    );
+
+    conteudo.classList.remove("animar");
+
+    void conteudo.offsetWidth;
+
+    conteudo.classList.add("animar");
 
 
-const person = personagem[3];
-document.getElementById("imgpersonagem").src = person.imgpersonagem;
-document.getElementById("nomepersonagem").textContent = person.nomepersonagem;
-document.getElementById("descricaopersonagem").textContent = person.descricaopersonagem;
+}
 
-document.getElementById("curiosidadepersonagem").textContent = person.curiosidadepersonagem;
-document.getElementById("personagem").style.backgroundColor = person.cor;
-console.log(person)
+function proximoPersonagem() {
+    i++
+    if (i >= personagem.length) {
+        i = 0;
+    }
+    mostrarPersonagem();
+}
+function personagemAnterior() {
+    i--
+    if (i < 0) {
+        i = personagem.length - 1;
+    }
+    mostrarPersonagem();
+}
+mostrarPersonagem();
+
+
