@@ -54,18 +54,18 @@ function mostrarPersonagem() {
         person.cor
     );
 
-    conteudo.classList.remove("animar");
+   personagemespecifico.classList.remove("animar");
 
-    void conteudo.offsetWidth;
+    void personagemespecifico.offsetWidth;
 
-    conteudo.classList.add("animar");
+   personagemespecifico.classList.add("animar");
 
 
 }
 
 function proximoPersonagem() {
     i++
-    if (i >= personagem.length) {
+    if (i == personagem.length) {
         i = 0;
     }
     mostrarPersonagem();
@@ -79,4 +79,73 @@ function personagemAnterior() {
 }
 mostrarPersonagem();
 
+let form = document.getElementById("form");
 
+form.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("email").value;
+    let idade = document.getElementById("idade").value;
+    let mensagem = document.getElementById("textAreaMensagem").value;
+
+    alert(`Olá ${nome}, sua mensagem foi enviada para nossos personagens com muito carinho!`);
+
+    form.reset();
+
+});
+let aumenta = document.getElementById("aumenta");
+let diminui = document.getElementById("diminui");
+
+let tamanhoFonte = 30;
+
+aumenta.addEventListener("click", () => {
+
+    tamanhoFonte += 2;
+
+    document.querySelectorAll("#dadospersonagem p").forEach(p => {
+        p.style.fontSize = tamanhoFonte + "px";
+    });
+
+});
+
+diminui.addEventListener("click", () => {
+
+    tamanhoFonte -= 2;
+
+    if (tamanhoFonte < 12) {
+        tamanhoFonte = 12;
+    }
+
+    document.querySelectorAll("#dadospersonagem p").forEach(p => {
+        p.style.fontSize = tamanhoFonte + "px";
+    });
+
+});
+
+let menu = document.getElementById("menu");
+
+let girado = false;
+let bloco = document.querySelectorAll(".bloco");
+
+menu.addEventListener("click", () => {
+
+    if (girado == false) {
+        menu.style.transform = "rotate(90deg)";
+        girado = true;
+
+        bloco.forEach(elemento => {
+            elemento.style.display = "flex";
+        });
+
+    } else {
+        menu.style.transform = "rotate(0deg)";
+        girado = false;
+
+        bloco.forEach(elemento => {
+            elemento.style.display = "none";
+        });
+    }
+
+});

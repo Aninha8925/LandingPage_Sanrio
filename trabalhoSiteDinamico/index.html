@@ -14,8 +14,18 @@
 <body>
 
     <nav>
+      <img src="img/logo.png" alt="">
 
+     <img id="menu" src="img/menu.png" alt="">
+    
     </nav>
+     <div class="bloco">
+        <ul>
+            <li><a href="#menu">Home</a></li>
+            <li><a href="#personagemespecifico">Personagens</a></li>
+            <li><a href="#form">Formulário</a></li>
+        </ul>
+     </div>
 
     <section class="sanrio">
 
@@ -48,12 +58,36 @@
             <h2 id="nomepersonagem"></h2>
             <p id="descricaopersonagem"></p>
             <p id="curiosidadepersonagem"></p>
+            <button id="aumenta">A+</button>
+            <button id="diminui">a-</button>
            </div>
         </div>
         <button class="seta" onclick="proximoPersonagem()">❯</button>
     </section>
 
-    <section>
+    <section class="formPersonagem">
+    <form id="form">
+        <h2>Mande uma mensagem para seu personagem!</h2>
+
+        <label for="nome">Nome: </label>
+        <input type="text" required placeholder="Informe seu nome" id="nome">
+
+        <label for="email">E-mail: </label>
+        <input type="email" required placeholder="Informe seu E-mail" id="email">
+
+        <label for="idade">Idade: </label>
+        <input type="number" required placeholder="Informe sua idade" id="idade">
+
+        <label for="mensagem">Mensagem</label>
+        <textarea name="mensagem" id="textAreaMensagem" required placeholder="Escreva aqui" ></textarea>
+
+        <button type="submit" id="enviar">Enviar</button>
+    </form>
+    </section>
+
+   
+
+
       
 
 
